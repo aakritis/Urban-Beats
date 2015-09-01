@@ -1,0 +1,129 @@
+doctype html
+html
+  head
+    title Urban Beats
+    |     
+    script(type='text/javascript').
+      function disableHandler (form, inputName) {
+      var inputs = form.elements[inputName];
+      for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      input.onclick = function (evt) {
+      if (this.checked) {
+      disableInputs(this, inputs);
+      }
+      else {
+      enableInputs(this, inputs);
+      }
+      return true;
+      };
+      }
+      }
+      function disableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = true;
+      }
+      }
+      }
+      function enableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = false;
+      }
+      }
+      }
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    |     
+    style.
+      p {text-align: left; margin-top:24px}
+      th, td {
+      overflow: hidden;
+      width: 100px;
+      height: 25px;
+      vertical-align: top;
+      padding: 5px;
+      }
+      .headings{text-align:center;}
+    |     
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+  |   
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    |     
+    .container
+      form(role='form')
+        .form-group
+          br
+          br
+          br
+          | &#x9;&#x9;
+          ul.nav.nav-tabs(role='tablist')
+            li
+              a(href='/businessview') Who&apos;s There
+            |         
+            li
+              a(href='/prepFlier') Prepare Flyer
+            |  
+            | &#x9;&#x9;
+            li
+              a(href='/oldfliers') Previous Flyers
+            | &#x9;&#x9;
+            li
+              a(href='/myinfo') My Info
+            | &#x9;&#x9;
+            li.active
+              a(href='/invalidate') Invalidate Coupon
+          | 
+        form(name='iForm', action = '/invalidate')
+          h3 Enter the Flyer ID
+          |           
+          input(type='text', name='flyerid', value='#{variables.flyerid}', size='40')
+          input(type='submit', value='Get Coupons')
+          |  
+        form(action = '/invalidatecoupon', method = 'post')         
+          .table-responsive
+            table.table
+              thead
+                tr.headings
+                  th
+                    | Choose
+                  |                   
+                  th Name
+                  |                   
+                  th Coupon ID
+              |               
+              tbody
+                - each item, index in variables.arrcoupon
+                  tr
+                    td
+                      .checkbox
+                        label
+                          input.check(type='checkbox', name='finallevelusers[]', value='#{variables.arrcoupon[index]}')
+                    |                   
+                    td
+                      p= variables.arruser[index]
+                    |                   
+                    td
+                      p= item
+            |             
+            input(type='submit', value='Invalidate Coupon') 
+    |     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |     
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  |   
+  script(type='text/javascript').
+    disableHandler(document.forms.aForm, 'finallevelusers[]');

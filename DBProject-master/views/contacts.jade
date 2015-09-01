@@ -1,0 +1,137 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Urban Beats
+    // Bootstrap Core CSS
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='stylesheets/landing-page.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.topnav1(href='/') Urban Beats
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='signup') Sign up
+            li
+              a(href='signin') Sign in
+            li
+              a(href='businesslogin') Business User?
+        // /.navbar-collapse
+      // /.container
+    // Page Content
+    a(name='services')
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Harsh Asher
+              br
+              | TA
+            p.lead Email ID: asherh@seas.upenn.edu
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            img.img-responsive(src='img/HarshAsher.jpg', alt='')
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Aakriti Singla
+              br
+              | Database Architect
+            p.lead Email ID: aakritis@seas.upenn.edu
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            img.img-responsive(src='img/aakriti.jpg', alt='')
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Parul Bhalla
+              br
+              | Middleware Developer
+            p.lead Email ID: pbhalla@seas.upenn.edu
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            img.img-responsive(src='img/parul.jpg', alt='')
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Krishna Chaitanya
+              br
+              | User Interface Designer
+            p.lead Email ID: krishnad@seas.upenn.edu
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            img.img-responsive(src='img/KC.jpg', alt='')
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Vamsi Jandhayala
+              br
+              | Middleware Developer
+            p.lead Email ID: javamsi@seas.upenn.edu
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            img.img-responsive(src='img/dog.png', alt='')
+      // /.container
+    // Footer
+    footer
+      .container
+        .row
+          .col-lg-12
+            ul.list-inline
+              li
+                a(href='/') Home
+              li.footer-menu-divider ⋅
+              li
+                a(href='/contacts') Contact
+            p.copyright.text-muted.small Copyright © Urban Beats 2015. All Rights Reserved
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')

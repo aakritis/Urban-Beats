@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', type='text/css', href='http://snipplicious.com/css/bootstrap-3.2.0.min.css')
+    // <link rel="stylesheet" type="text/css" href="http://snipplicious.com/css/font-awesome-4.1.0.min.css">
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    script(src='http://snipplicious.com/js/jquery.js')
+    script(src='http://snipplicious.com/js/bootstrap.min.js')
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    |   
+    |     
+    .container
+      .form-group
+        h2
+          br
+        | &#x9;  
+        h2 All My Stats!
+        | &#x9;  
+        | &#x9;  
+        ul.nav.nav-tabs(role='tablist')
+          li
+            a(href='/businessview') Who&apos;s There
+          |         
+          li
+            a(href='/prepflier') Prepare Flyer
+          | &#x9;&#x9;
+          li
+            a(href='/oldfliers') Previous Flyers
+          | &#x9;&#x9;
+          li.active
+            a(href='/myinfo') My Info
+          | &#x9;&#x9;
+          li
+            a(href='/invalidate') Invalidate Coupon
+        .container
+          .row
+            .col-md-8.col-xs-10
+              .well.panel.panel-default
+                .panel-body
+                  .row
+                    .col-xs-12.col-sm-4.text-center
+                      img.center-block.img-circle.img-thumbnail.img-responsive(src='http://globe-views.com/dcim/dreams/restaurant/restaurant-01.jpg', alt='')
+                      |               
+                      ul.list-inline.ratings.text-center(title='Ratings')
+                        li
+                          a(href='#')
+                            span.fa.fa-star.fa-lg
+                        |                 
+                        li
+                          a(href='#')
+                            span.fa.fa-star.fa-lg
+                        |                 
+                        li
+                          a(href='#')
+                            span.fa.fa-star.fa-lg
+                        |                 
+                        li
+                          a(href='#')
+                            span.fa.fa-star.fa-lg
+                        |                 
+                        li
+                          a(href='#')
+                            span.fa.fa-star.fa-lg
+                    // /col
+                    .col-xs-12.col-sm-8
+                      h2 #{variables.name}
+                      |               
+                      p
+                        strong Address: 
+                        |  #{variables.address}
+                      |               
+                      p
+                        strong
+                          | Categories: 
+                          span.label.label-info.tags #{variables.category}
+                    // /col
+                    .clearfix
+                    |             
+                    |             
+                    .col-xs-12.col-sm-4
+                      h2
+                        strong #{variables.reviewcount}
+                      |               
+                      p
+                        small Total Reviews
+                    // /col
+                  // /row
+                // /panel-body
+              // /panel
+            // /col
+          // /row
+        // /container
+        

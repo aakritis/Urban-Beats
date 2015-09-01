@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Urban Beats
+    meta(charset='utf-8')
+    // Bootstrap Core CSS
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='stylesheets/landing-page.css', rel='stylesheet')
+    link(href='stylesheets/style.css', rel='stylesheet', type='text/css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(type='application/x-javascript').
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    // webfonts
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+    // //webfonts
+     script.
+      function validateForm() {
+      var x = document.forms["myForm"]["fname"].value;
+      if (x == null || x == "" || x.indexOf("Password") > -1) {
+      alert("Mail must be filled out");
+      return false;
+      }
+      }
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    .main
+      form(name='myForm', action = '/businessauthenticate', method = 'post')
+        .lable-2
+          h3 Please enter your Business ID
+          input.text(type='password', name='fname', required='required')
+        .clear  
+        h3
+          | Not a member yet? Click 
+          a(href='/contacts') here
+        .submit
+          input(type='submit', onclick='validateForm()', value='Login')
+        .clear  
+      // ---//end-main--
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')

@@ -1,0 +1,164 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    meta(name='description', content='')
+    |     
+    meta(name='author', content='')
+    |     
+    title Urban Beats
+    // Bootstrap Core CSS
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='/stylesheets/landing-page.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    |     
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      |         
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |                     
+            span.icon-bar
+            |                     
+            span.icon-bar
+            |                     
+            span.icon-bar
+          |                 
+          a.navbar-brand.topnav1(href='/') Urban Beats
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              br
+              | Welcome #{variables.userName} !!
+            li
+              a(href='/invitefriends') Invite Friends
+            li
+              a(href='logout') Logout  
+        // /.navbar-collapse
+      // /.container
+    // Header
+    form(name='myForm', action = '/usercategory', method = 'post')
+      a(name='about')
+      |     
+      .intro-header
+        .container
+          .row
+            .col-lg-12
+              .intro-message
+                h1 What&apos;s on your mind?
+                |                         
+                h3 Plan your hangout now!!
+                |                         
+                hr.intro-divider
+                |                         
+                ul.list-inline.intro-social-buttons
+                  li
+                    select.btn.btn-default.btn-lg(name= 'category')
+                      option(value='Food') Food
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      option(value='NightLife') NightLife
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      option(value='Restaurants') Restaurants
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      option(value='Shopping') Shopping
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      option(value='Bars') Bars
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  li
+                    button.btn.btn-default.btn-lg(type='submit') Let&apos;s GO
+      // /.container
+    // /.intro-header
+    // Page Content
+    //
+      <a  name="services"></a>
+      <div class="content-section-a">
+      <div class="container">
+      <div class="row">
+      <div class="col-lg-5 col-sm-6">
+      <hr class="section-heading-spacer">
+      <div class="clearfix"></div>
+      <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
+      <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+      <img class="img-responsive" src="img/ipad.png" alt="">
+      </div>
+      </div>
+      </div>
+      <!-- /.container
+      </div>
+      <!-- /.content-section-a
+    //
+      <div class="content-section-b">
+      <div class="container">
+      <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+      <hr class="section-heading-spacer">
+      <div class="clearfix"></div>
+      <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
+      <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+      <img class="img-responsive" src="img/dog.png" alt="">
+      </div>
+      </div>
+      </div>
+      <!-- /.container
+      </div>
+    // /.content-section-b
+    //
+      <div class="content-section-a">
+      <div class="container">
+      <div class="row">
+      <div class="col-lg-5 col-sm-6">
+      <hr class="section-heading-spacer">
+      <div class="clearfix"></div>
+      <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+      <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+      <img class="img-responsive" src="img/phones.png" alt="">
+      </div>
+      </div>
+      </div>
+      <!-- /.container
+      </div>
+    // Footer
+    footer
+      .container
+        .row
+          .col-lg-12
+            ul.list-inline
+              li
+                a(href='/') Home
+              |                         
+              li.footer-menu-divider &sdot;
+              |                         
+              |                        
+              |                         
+              li
+                a(href='/contacts') Contact
+            |                     
+            p.copyright.text-muted.small Copyright &copy; Urban Beats 2015. All Rights Reserved
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    

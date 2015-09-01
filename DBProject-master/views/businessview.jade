@@ -1,0 +1,91 @@
+doctype html
+html
+  head
+    title Urban Beats
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    |     
+    script(type='text/javascript').
+      function checkPage(bx){
+      for (var tbls=document.getElementsByTagName("table"), i=tbls.length; i--; )
+      for (var bxs=tbls[i].getElementsByTagName("input"), j=bxs.length; j--; )
+      if (bxs[j].type=="checkbox")
+      bxs[j].checked = bx.checked;
+      }
+    |     
+    style.
+      p {text-align: left; margin-top:24px}
+      th, td {
+      overflow: hidden;
+      width: 100px;
+      height: 25px;
+      vertical-align: top;
+      padding: 5px;
+      }
+      .headings{text-align:center;}
+    |     
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+  |   
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    |     
+    .container
+      form(role='form')
+        .form-group
+          h2
+            br
+          |           
+          h2 Welcome Your Customers!
+          |           
+          ul.nav.nav-tabs(role='tablist')
+            li.active
+              a(href='/businessview') Who&apos;s There
+            |             
+            li
+              a(href='/prepflier') Prepare Flyer
+            |             
+            li
+              a(href='/oldfliers') Previous Flyers
+            |             
+            li
+              a(href='/myinfo') My Info
+            |             
+            li
+              a(href='/invalidate') Invalidate Coupon
+          |           
+          .table-responsive
+            table.table
+              thead
+                tr.headings
+                  th
+                    .checkbox
+                      label
+                        input(type='checkbox', name='pageCheck', value='yes', onclick='checkPage(this)')
+                        b Select All
+                  |                   
+                  th Customers
+              |               
+              tbody
+                - each item in variables.arrnames
+                  tr
+                    td
+                      .checkbox
+                        label
+                          input.check(type='checkbox')             
+                    td
+                      p= item
+            |             
+    |     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |     
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    

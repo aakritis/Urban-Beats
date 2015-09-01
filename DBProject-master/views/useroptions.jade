@@ -1,0 +1,237 @@
+doctype html(lang='en')
+head
+    meta(charset='UTF-8')
+    |     
+    title Urban Beats
+    |     
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    |     
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css')
+    |     
+    link(rel='stylesheet', href='http://cdn.datatables.net/1.10.6/css/jquery.dataTables.css')
+    |     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+    |     
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+    |     
+    script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+    |     
+    script(src='http://cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js')
+    |     
+    script(type='text/javascript').
+      $(document).ready(function() { $('#example').dataTable( { "pagingType": "full_numbers"});});
+    | 
+    script(type='text/javascript', language='JavaScript').
+      function HideContent(d) {
+      document.getElementById(d).style.display = "none";
+      }
+      function ShowContent(d) {
+      document.getElementById(d).style.display = "block";
+      }
+      function ReverseDisplay(d) {
+      if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+      else { document.getElementById(d).style.display = "none"; }
+      }    
+    style.
+      .bs-example {
+      margin: 20px;
+      }
+      .pos_fixed {
+      position: absolute;
+      top: 72px;
+      right: -590px;
+      }
+      .pos_fixed2 {
+      position: absolute;
+      top: 600px;
+      right: 900px;
+      }  
+      li {
+      font-size: 16px;
+      color: Maroon;
+      }
+  body
+    .container
+      .row
+        .col-xs-12
+          nav.navbar.navbar-default.topnav(role='navigation')
+            .container.topnav
+              .navbar-header
+                a.navbar-brand.topnav1(href='/')
+                  b Urban Beats
+      |     
+      .row
+        .col-sm-3
+          .sidebar-nav
+            .navbar.navbar-default(role='navigation')
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-navbar-collapse')
+                  span.sr-only Toggle navigation
+                  |               
+                  span.icon-bar
+                  |               
+                  span.icon-bar
+                  |               
+                  span.icon-bar
+                |               
+                span.visible-xs.navbar-brand Sidebar menu
+              |             
+              .navbar-collapse.collapse.sidebar-navbar-collapse
+                ul.nav.navbar-nav
+                  table
+                    tr
+                      th Refine Your Taste
+                  .container
+                    li Rating
+                    |                   
+                    form(name='aForm', role='form')
+                      .checkbox
+                        label
+                          - var check = false
+                          - if (variables.rating === '4.0')
+                            - check = true
+                          input(type= 'checkbox', value='4.0', name='rating', checked = check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineRating?name=rating&value=4.0'; return true;")
+                          | &ge; 4.0
+                      |                     
+                      .checkbox
+                        label
+                          - var check = false
+                          - if (variables.rating === '3.0')
+                            - check= true  
+                          input(type='checkbox', value='3.0', name='rating', checked = check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineRating?name=rating&value=3.0'; return true;")
+                          | &ge; 3.0
+                    |                   
+                    li Ambience
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.ambience === "casual")
+                            - check= true
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineAmbience?name=ambience&value=casual'; return true;")
+                        | Casual
+                    |                     
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.ambience === "romance")
+                            - check= true
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineAmbience?name=ambience&value=romance'; return true;")
+                        | Romance
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.ambience === "classy")
+                            - check= true
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineAmbience?name=ambience&value=classy'; return true;")
+                        | Classy
+                    |                     
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.ambience === "trendy")
+                            - check= true
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineAmbience?name=ambience&value=trendy'; return true;")
+                        | Trendy
+                    li Takeout
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.takeout === "takeout")
+                            - check= true  
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineTakeout?name=takeout&value=takeout'; return true;")
+                        | Yes
+                    li Delivery
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.delivery === "delivery")
+                            - check= true    
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineDelivery?name=delivery&value=delivery'; return true;")
+                        | Yes
+                    li Alcohol
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.alcohol === "alcohol")
+                            - check= true 
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineAlcohol?name=alcohol&value=alcohol'; return true;")
+                        | Yes
+                    li Parking
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.parking === "parking")
+                            - check= true  
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineParking?name=parking&value=parking'; return true;")
+                        | Yes
+                    li Outdoor Seating
+                    |                   
+                    .checkbox
+                      label
+                        - var check = false
+                        - if (variables.outdoorSeating === "outdoorSeating")
+                            - check= true   
+                        input(type='checkbox', checked=check, onclick="window.location='http://urbanbeatsbeta.herokuapp.com/refineOutdoorSeating?name=outdoorSeating&value=outdoorSeating'; return true;")
+                        | Yes
+  form(name='notifyForm', action='/notify', method='post')                        
+    table#example.display(cellspacing='0', width='80%')
+      thead
+        tr
+          th All You Want
+      |       
+      tbody
+        - each item, index in variables.results
+          tr
+            td
+              | Business Name: #{variables.results[index].name}
+              br
+              | Address: #{variables.results[index].full_address}
+              br
+              | Rating: #{variables.results[index].stars}/5
+              br
+              | 
+              p
+                - var unq = 'uniquename'+index
+                a(href="javascript:ShowContent('#{unq}')" )
+                  | Show Pictures  
+                div(id=unq, style='display:none;')
+                  iframe(src='pictures.html?name=#{variables.results[index].name}', width='400', height='250')
+                  a(href="javascript:HideContent('#{unq}')")
+                    | Hide Pictures
+        .pos_fixed2
+          input(type='submit', value='Notify All')
+    .pos_fixed
+      .col-sm-3
+        .sidebar-nav
+          .navbar.navbar-default(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-navbar-collapse')
+                span.sr-only Toggle navigation
+                |                 
+                span.icon-bar
+                |                 
+                span.icon-bar
+                |                 
+                span.icon-bar
+              |                 
+              span.visible-xs.navbar-brand Sidebar menu
+            |               
+            .navbar-collapse.collapse.sidebar-navbar-collapse
+              ul.nav.navbar-nav
+                .container
+                  table
+                    tr
+                      th Premium Deals
+                  -each item1,index1 in variables.arrpbus
+                     li= item1
+                     |                     
+                     | 
+                     p=variables.arrpflyer[index1]
+                     | 
+                     br

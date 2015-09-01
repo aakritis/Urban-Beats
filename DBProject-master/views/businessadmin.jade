@@ -1,0 +1,78 @@
+doctype html
+html
+  head
+    title Urban Beats
+    meta(charset='utf-8')
+    // Bootstrap Core CSS
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    |     
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='stylesheets/landing-page.css', rel='stylesheet')
+    link(href='stylesheets/style.css', rel='stylesheet', type='text/css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(type='application/x-javascript').
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    // webfonts
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+    // //webfonts
+    style.
+      .center {
+      margin-left: auto;
+      margin-right: auto;
+      width: 55%;
+      }
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    .main
+      form(name='myForm', action = '/businessregister', method = 'post')
+        h2 Business Registration Panel
+        | &#x9;&#x9;   
+        .lable-2
+          input.text(type='text', name='bname', value='business name ', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'business name ';}")
+          | &#x9;&#x9;        
+          input.text(type='text', name='baddr', value='Full Address ', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'address ';}")
+          | &#x9;&#x9;&#x9;
+          .lable
+            .col_1_of_2.span_1_of_2
+              input.text(type='text', name='city', value='City', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'First Name';}")
+            |                 
+            .col_1_of_2.span_1_of_2
+              input.text(type='text', name='state', value='State', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Last Name';}")
+            |                 
+            .clear  
+          | &#x9;&#x9;&#x9;&#x9;
+          input.text(type='text', name='email', value='your@email.com ', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'your@email.com ';}")
+          | &#x9;&#x9;&#x9;&#x9;
+          .center
+            | Business Category:
+            select(style='width: 210px;', multiple='', name='category')
+              option(value='Restaurants') Restaurants
+              | &#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='Nightlife') Nightlife
+              | &#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='Food') Food
+              | &#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='Shopping') Shopping
+              | &#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='Bars') Bars
+          | &#x9;&#x9;&#x9;&#x9;
+          br
+        | &#x9;&#x9;   
+        .submit
+          input(type='submit', onclick='myFunction()', value='Send ID')
+        | &#x9;&#x9;   
+        .clear  
+      // ---//end-main--
+    // jQuery
+    script(src='stylesheets/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='stylesheets/bootstrap.min.js')

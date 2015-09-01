@@ -1,0 +1,145 @@
+doctype html
+html
+  head
+    title Urban Beats
+    |   
+    link(href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css', rel='stylesheet')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js')
+    script(type='text/javascript').
+      function HideContent(d) {
+      document.getElementById(d).style.display = "none";
+      }
+      function ShowContent(d) {
+      document.getElementById(d).style.display = "block";
+      }
+      function ReverseDisplay(d) {
+      if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+      else { document.getElementById(d).style.display = "none"; }
+      }
+      function disableHandler (form, inputName) {
+      var inputs = form.elements[inputName];
+      for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      input.onclick = function (evt) {
+      if (this.checked) {
+      disableInputs(this, inputs);
+      }
+      else {
+      enableInputs(this, inputs);
+      }
+      return true;
+      };
+      }
+      }
+      function disableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = true;
+      }
+      }
+      }
+      function enableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = false;
+      }
+      }
+      }
+    |   
+    |   
+    |   
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    | &#x9;
+    | &#x9;
+    style.
+      p {background: url('img/advertize2.jpg') no-repeat 0px 20px; 
+      height: 300px; 
+      padding: 30px;
+      font-size: 30px;
+      color: white;
+      }
+      th, td {
+      overflow: hidden;
+      width: 200px;
+      height: 125px;
+      vertical-align: top;
+      padding: 5px;
+      }
+      .headings{text-align:center;}
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+  |   
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='skins/litecube/')
+            b Urban Beats
+      // /.container
+    |   
+    |     
+    .container
+      form(name='aForm', role='form', action='/availOffer', method='post')
+        .form-group
+          h2
+            br
+          | &#x9;  
+          h2 Your offers are ready!
+          |      
+          | &#x9; 
+          |   
+          br
+          button.btn.btn-default.btn-lg(type='submit') Avail this Offer!    
+          .table-responsive
+            table.table
+              thead
+                tr.headings
+                  th
+                    | Choose
+                  | &#x9;&#x9;&#x9;
+                  |             
+                  th Flyers
+                  th Who
+                  th Where
+                  th Want Reviews?
+              |         
+              tbody
+                - each item,index in variables.flyerCoupons
+                  tr
+                    td
+                      - var unq = 'unique'+index
+                      input(id=unq, type='checkbox', name='finallevelusers[]', value='#{variables.business[index].business_id};#{variables.flyerIds[index]}')
+                    td
+                      p= item
+                    td
+                      p(style='color:black;background-image: none;')= variables.business[index].name
+                    td
+                      p(style='color:black;background-image: none;')= variables.business[index].full_address 
+                    td
+                      - var unq = 'uniquename'+index
+                      a(href="javascript:ShowContent('#{unq}')" )
+                        | Show Reviews  
+                      div(id=unq, style='display:none;')
+                        p(style='font-size:15px;color:black;background-image: none;')= variables.review[0].text
+                        a(href="javascript:HideContent('#{unq}')")
+                          | Hide Reviews
+                    td(style='visibility:hidden')
+                      input(type='text', name='business_id', value=variables.business[index].business_id)
+                      input(type='text', name='flyer_id', value=variables.flyerIds[index])
+            | &#x9;  
+    | &#x9;
+    |  
+    |     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |     
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  |   
+  script(type='text/javascript').
+    disableHandler(document.forms.aForm, 'finallevelusers[]');

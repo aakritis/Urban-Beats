@@ -1,0 +1,148 @@
+doctype html
+html
+  head
+    title Urban Beats
+    |   
+    |   
+    script(type='text/javascript').
+      function disableHandler (form, inputName) {
+      var inputs = form.elements[inputName];
+      for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      input.onclick = function (evt) {
+      if (this.checked) {
+      disableInputs(this, inputs);
+      }
+      else {
+      enableInputs(this, inputs);
+      }
+      return true;
+      };
+      }
+      }
+      function disableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = true;
+      }
+      }
+      }
+      function enableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = false;
+      }
+      }
+      }
+    |   
+    |   
+    |   
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    | &#x9;
+    | &#x9;
+    style.
+      p {background: url('img/advertize2.jpg') no-repeat 0px 20px; 
+      height: 300px; 
+      padding: 30px;
+      font-size: 30px;
+      color: white;
+      }
+      th, td {
+      overflow: hidden;
+      width: 100px;
+      height: 125px;
+      vertical-align: top;
+      padding: 5px;
+      }
+      .headings{text-align:center;}
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+  |   
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    |   
+    |     
+    .container
+      form(name='aForm',action = '/updateflier', method = 'post')
+        .form-group
+          h2
+            br
+          | &#x9;  
+          h2 Your previous deals!
+          |      
+          | &#x9; 
+          ul.nav.nav-tabs(role='tablist')
+            li
+              a(href='/businessview') Who&apos;s There
+            |         
+            li
+              a(href='/prepflier') Prepare Flyer
+            | &#x9;&#x9;
+            li.active
+              a(href='/oldfliers') Previous Flyers
+            | &#x9;&#x9;
+            li
+              a(href='/myinfo') My Info
+            | &#x9;&#x9;
+            li
+              a(href='/invalidate') Invalidate Coupon
+          | &#x9; 
+          |   
+          br
+          button.btn.btn-default.btn-lg(type='submit') Activate this!    
+          .table-responsive
+            table.table
+              thead
+                tr.headings
+                  th
+                    | Choose
+                  | &#x9;&#x9;&#x9;
+                  | 
+                  th
+                    | Flyers
+                  | &#x9;&#x9;&#x9;
+                  | 
+                  th
+                    | Success Rate
+                  | &#x9;&#x9;&#x9;
+                  | 
+                  th
+                    | Flyer ID
+                  | &#x9;&#x9;&#x9;
+                  |          
+              |         
+              tbody
+                - each item,index in variables.arrnames
+                  tr
+                    td
+                      .checkbox
+                        label
+                          input.check(type='checkbox', name='finallevelusers[]' value = '#{item}')
+                    td
+                      p= item
+                    td
+                      p(style='color:black;background-image: none;')= variables.arrsuccess[index]
+                    td
+                      p(style='color:black;background-image: none;')= variables.arrid[index]
+            | &#x9;  
+    | &#x9;
+    |  
+    |     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |     
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  |   
+  script(type='text/javascript').
+    disableHandler(document.forms.aForm, 'finallevelusers[]');
+    

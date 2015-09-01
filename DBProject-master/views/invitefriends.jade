@@ -1,0 +1,92 @@
+doctype html
+html
+  head
+    title Urban Beats
+    |     
+    script(type='text/javascript').
+      function disableHandler (form, inputName) {
+      var inputs = form.elements[inputName];
+      for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      input.onclick = function (evt) {
+      if (this.checked) {
+      disableInputs(this, inputs);
+      }
+      else {
+      enableInputs(this, inputs);
+      }
+      return true;
+      };
+      }
+      }
+      function disableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = true;
+      }
+      }
+      }
+      function enableInputs (input, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+      var currentInput = inputs[i];
+      if (currentInput != input) {
+      currentInput.disabled = false;
+      }
+      }
+      }
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    |     
+    style.
+      p {text-align: left; margin-top:24px}
+      th, td {
+      overflow: hidden;
+      width: 100px;
+      height: 25px;
+      vertical-align: top;
+      padding: 5px;
+      }
+      .headings{text-align:center;}
+    |     
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+  |   
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    |     
+    .container
+      form(name='aForm', action='/invitefriends')
+        h3 Enter the mail Id's
+        |           
+        input(type='text', name='friend', value='', size='40')
+        input(type='submit', value='Send Mail')
+        |  
+      form(action='')         
+          .table-responsive
+            table.table
+              thead
+                tr.headings
+                  th
+                    | Your currently logged in friends
+              |               
+              tbody
+                - each item, index in variables.results
+                  tr
+                    td
+                      p= item
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |     
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  |   
+  script(type='text/javascript').
+    disableHandler(document.forms.aForm, 'finallevelusers[]');
+    

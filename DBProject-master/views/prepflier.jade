@@ -1,0 +1,101 @@
+doctype html(lang='en')
+head
+    title Urban Beats
+    |   
+    meta(charset='utf-8')
+    |   
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |   
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    |   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |   
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    |   
+    |   
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700', rel='stylesheet', type='text/css')
+    |   
+    style.
+      @import url(http://fonts.googleapis.com/css?family=Roboto:400,900);
+      .module {
+      background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+      ),
+      url(img/advertize.jpg);
+      background-size: cover;
+      width: 300px;
+      height: 200px;
+      margin: 10px 0 0 10px;
+      position: relative;
+      float: left;
+      }
+      .mid textarea {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      color: white;
+      text-transform: uppercase;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 2rem;
+      transform: translate(-50%, -50%);
+      }
+  body
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          a.navbar-brand.topnav1(href='/')
+            b Urban Beats
+      // /.container
+    .container
+      h2
+        br
+      |   
+      h2 Now you can Advertise better!
+      |   
+      |   
+      form(name='pform', action = '/addflier', method = 'post')
+        .form-group
+          ul.nav.nav-tabs(role='tablist')
+            li
+              a(href='/businessview') Who&apos;s There
+            |         
+            li.active
+              a(href='/prepflier') Prepare Flyer
+            |  
+            | &#x9;&#x9;
+            li
+              a(href='/oldfliers') Previous Flyers
+            | &#x9;&#x9;
+            li
+              a(href='/myinfo') My Info
+            | &#x9;&#x9;
+            li
+              a(href='/invalidate') Invalidate Coupon
+          | &#x9;
+          br
+          |       
+          label(for='comment') Prepare a flier
+          | &#x9;  
+          br
+          | &#x9;  
+          | &#x9;  
+          .module.mid
+            textarea(value='Your Ad Here! ', name='textarea', style='height: 150px; background-color: transparent;') Your Ad Here!
+          | &#x9;  
+          br(style='clear: both;')
+        | &#x9;
+        | &#x9;
+        button.btn.btn-default.btn-lg(type='submit') Save Flier
+        br
+        br
+        label(for='comment') Your Current Flyer
+        br
+        .module.mid
+          p(style='color:white;font-size: 200%;')= variables.flyer
+        

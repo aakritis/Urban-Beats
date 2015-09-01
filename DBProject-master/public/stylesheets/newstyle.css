@@ -1,0 +1,75 @@
+
+.bs-example{
+      margin: 20px;
+      }
+	
+	.pos_fixed {
+    position: fixed;
+    top: 72px;
+    right: 100px;
+}
+
+.more {
+      display: none;
+      border-top: 1px solid #666;
+      border-bottom: 1px solid #666; }
+      a.showLink, a.hideLink {
+      text-decoration: none;
+      color: #36f;
+      padding-left: 8px;
+      background: transparent url(down.gif) no-repeat left; }
+      a.hideLink {
+      background: transparent url(up.gif) no-repeat left; }
+      a.showLink:hover, a.hideLink:hover {
+      border-bottom: 1px dotted #36f; }
+
+.table1,th, td{
+	width: 640px;
+    border: 1px solid #848484;
+	border-spacing: 10px;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+	
+	/* make sidebar nav vertical */ 
+	@media (min-width: 768px) {
+	  .sidebar-nav .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	  }
+	  .sidebar-nav .navbar ul {
+		float: none;
+	  }
+	  .sidebar-nav .navbar ul:not {
+		display: block;
+
+	  }
+	  .sidebar-nav .navbar li {
+		float: none;
+		display: block;
+	  }
+	  .sidebar-nav .navbar li a {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	  }
+	}
+	@media (min-width: 768px) {
+	  /* uncomment if you would like the menu to be fixed */
+	  /* .navbar {
+		  position: fixed;
+		  width: 170px;
+		  z-index: 2;
+	  } */
+	}
+	@media (min-width: 992px) {
+	  .navbar {
+		  width: 212px;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .navbar {
+		  width: 262px;
+	  }
+	}
+	.sidebar-nav .navbar-header{ float: none; }
